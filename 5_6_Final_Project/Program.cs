@@ -56,7 +56,7 @@ namespace _5_6_Final_Project
         {
             (int NumberPets, string[] NamePet) Pet;
 
-            Console.WriteLine("Есть ли у вас питомец? да или нет: ");
+            Console.Write("Есть ли у вас питомец? да или нет: ");
 
             string StrPet = Console.ReadLine();
             string pet;
@@ -65,7 +65,7 @@ namespace _5_6_Final_Project
             {
                 do
                 {
-                    Console.WriteLine("Сколько у вас питомцев? ");
+                    Console.Write("Сколько у вас питомцев? ");
                     pet = Console.ReadLine();
                 } while (!CheckNum(pet, out Pet.NumberPets));
 
@@ -85,10 +85,39 @@ namespace _5_6_Final_Project
            
             return Pet;
         }
+        static (int NumberColors, string[] NameColor) EnterColor()
+        {
+            (int NumberColors, string[] NameColor) Color;
+
+            string numberColor;
+
+            do
+            {
+                Console.Write("Введите количество любимых цветов: ");
+                numberColor = Console.ReadLine();
+            } while (!CheckNum(numberColor, out Color.NumberColors));
+
+            if(Color.NumberColors > 0)
+            {
+                Color.NameColor = GreateArrayPets(Color.NumberColors);
+                for (int i = 0; i < Color.NameColor.Length; i++)
+                {
+                    Console.Write("Введите название {0} любимого цвета: ", i + 1);
+                    Color.NameColor[i] = Console.ReadLine();
+                }
+            }
+            else
+            {
+                Color.NameColor = GreateArrayPets(Color.NumberColors);
+            }
+
+            return Color;
+        }
         static void Main(string[] args)
         {
             EnterUser();
             EnterPet();
+            EnterColor();
         }
     }
 }
