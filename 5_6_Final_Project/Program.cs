@@ -18,12 +18,14 @@ namespace _5_6_Final_Project
                 {
                     Console.WriteLine("Преобразование прошло успешно.");
                     number = intnum;
+
                     return true;
                 }
             }
             {
                 Console.WriteLine("Преобразование завершилось неудачно.");
                 number = 0;
+
                 return false;
             }
         }
@@ -59,21 +61,21 @@ namespace _5_6_Final_Project
             Console.Write("Есть ли у вас питомец? да или нет: ");
 
             string StrPet = Console.ReadLine();
-            string pet;
+            string numpet;
 
             if (StrPet == "да")
             {
                 do
                 {
                     Console.Write("Сколько у вас питомцев? ");
-                    pet = Console.ReadLine();
-                } while (!CheckNum(pet, out Pet.NumberPets));
+                    numpet = Console.ReadLine();
+                } while (!CheckNum(numpet, out Pet.NumberPets));
 
                 Pet.NamePet = GreateArrayPets(Pet.NumberPets);
 
                 for (int i = 0; i < Pet.NamePet.Length; i++)
                 {
-                    Console.WriteLine("Как зовут вашего {0} питомца: ", i + 1);
+                    Console.Write("Как зовут вашего {0} питомца: ", i + 1);
                     Pet.NamePet[i] = Console.ReadLine();
                 }
             }
@@ -89,17 +91,19 @@ namespace _5_6_Final_Project
         {
             (int NumberColors, string[] NameColor) Color;
 
-            string numberColor;
+            string numColor;
 
             do
             {
                 Console.Write("Введите количество любимых цветов: ");
-                numberColor = Console.ReadLine();
-            } while (!CheckNum(numberColor, out Color.NumberColors));
+                numColor = Console.ReadLine();
+
+            } while (!CheckNum(numColor, out Color.NumberColors));
 
             if(Color.NumberColors > 0)
             {
                 Color.NameColor = GreateArrayPets(Color.NumberColors);
+
                 for (int i = 0; i < Color.NameColor.Length; i++)
                 {
                     Console.Write("Введите название {0} любимого цвета: ", i + 1);
@@ -113,11 +117,41 @@ namespace _5_6_Final_Project
 
             return Color;
         }
+        static void Data()
+        {
+            var UserTuple = EnterUser();
+            var PetTuple = EnterPet();
+            var ColorTuple = EnterColor();
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("Имя: " + UserTuple.Item1);
+            Console.WriteLine("Фамилия: " + UserTuple.Item2);
+            Console.WriteLine("Возраст: " + UserTuple.Item3);
+
+            
+            Console.WriteLine("Количество питомцев: " + PetTuple.Item1);
+
+            for (int i = 0; i < PetTuple.Item2.Length; i++)
+            {
+                Console.WriteLine("Имя {0} питомца: {1}", i + 1, PetTuple.Item2[i]);
+            }
+
+            Console.WriteLine("Количество любимых цветов: " + ColorTuple.Item1);
+
+            for (int i = 0; i < ColorTuple.Item2.Length; i++)
+            {
+                Console.WriteLine("Название {0] любимого цвета: {1}", i + 1, ColorTuple.Item2[i]);
+            }
+           
+        }
         static void Main(string[] args)
         {
-            EnterUser();
-            EnterPet();
-            EnterColor();
+
+            Data();
+
+            Console.ReadKey();
         }
     }
 }
