@@ -15,15 +15,14 @@ namespace _5_6_Final_Project
             if (int.TryParse(input, out int intnum))
             {
                 if (intnum > 0)
-                {
-                    Console.WriteLine("Преобразование прошло успешно.");
+                {                    
                     number = intnum;
 
                     return true;
                 }
             }
             {
-                Console.WriteLine("Преобразование завершилось неудачно.");
+                Console.WriteLine("Некорректный ввод данных, введите заново.");
                 number = 0;
 
                 return false;
@@ -91,28 +90,21 @@ namespace _5_6_Final_Project
         {
             (int NumberColors, string[] NameColor) Color;
 
-            string numColor;
+            string numColor;            
 
             do
             {
                 Console.Write("Введите количество любимых цветов: ");
                 numColor = Console.ReadLine();
 
-            } while (!CheckNum(numColor, out Color.NumberColors));
+            } while (!CheckNum(numColor, out Color.NumberColors)); 
 
-            if(Color.NumberColors > 0)
-            {
-                Color.NameColor = GreateArrayPets(Color.NumberColors);
+            Color.NameColor = GreateArrayPets(Color.NumberColors);
 
-                for (int i = 0; i < Color.NameColor.Length; i++)
-                {
-                    Console.Write("Введите название {0} любимого цвета: ", i + 1);
-                    Color.NameColor[i] = Console.ReadLine();
-                }
-            }
-            else
+            for (int i = 0; i < Color.NameColor.Length; i++)
             {
-                Color.NameColor = GreateArrayPets(Color.NumberColors);
+                Console.Write("Введите название {0} любимого цвета: ", i + 1);
+                Color.NameColor[i] = Console.ReadLine();
             }
 
             return Color;
