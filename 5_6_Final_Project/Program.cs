@@ -150,10 +150,13 @@ namespace _5_6_Final_Project
         }
         static void Main(string[] args)
         {
+            while (true)
+            {
+                Console.Clear();    
+                Data();
 
-            Data();
-
-            Console.ReadKey();
+                Console.ReadKey();
+            }
         }
     }
 }
