@@ -152,10 +152,16 @@ namespace _5_6_Final_Project
         {
             while (true)
             {
-                Console.Clear();    
+                Console.Clear(); 
+                
                 Data();
 
-                Console.ReadKey();
+                Console.WriteLine();
+
+                Console.WriteLine("Для выхода введите: выход");
+                string exit = Console.ReadLine();
+                if (exit == "выход")
+                    break;
             }
         }
     }
