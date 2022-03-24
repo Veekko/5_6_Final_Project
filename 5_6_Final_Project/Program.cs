@@ -128,23 +128,23 @@ namespace _5_6_Final_Project
             Console.WriteLine();
             Console.WriteLine();
 
-            Console.WriteLine("Имя: " + UserTuple.Item1);
-            Console.WriteLine("Фамилия: " + UserTuple.Item2);
-            Console.WriteLine("Возраст: " + UserTuple.Item3);
+            Console.WriteLine("Имя: " + UserTuple.Name);
+            Console.WriteLine("Фамилия: " + UserTuple.LastName);
+            Console.WriteLine("Возраст: " + UserTuple.Age);
 
             
-            Console.WriteLine("Количество питомцев: " + PetTuple.Item1);
+            Console.WriteLine("Количество питомцев: " + PetTuple.NumberPets);
 
-            for (int i = 0; i < PetTuple.Item2.Length; i++)
+            for (int i = 0; i < PetTuple.NamePet.Length; i++)
             {
-                Console.WriteLine("Имя {0} питомца: {1}", i + 1, PetTuple.Item2[i]);
+                Console.WriteLine("Имя {0} питомца: {1}", i + 1, PetTuple.NamePet[i]);
             }
 
-            Console.WriteLine("Количество любимых цветов: " + ColorTuple.Item1);
+            Console.WriteLine("Количество любимых цветов: " + ColorTuple.NumberColors);
 
-            for (int i = 0; i < ColorTuple.Item2.Length; i++)
+            for (int i = 0; i < ColorTuple.NameColor.Length; i++)
             {
-                Console.WriteLine("Название {0] любимого цвета: {1}", i + 1, ColorTuple.Item2[i]);
+                Console.WriteLine("Название {0} любимого цвета: {1}", i + 1, ColorTuple.NameColor[i]);
             }
            
         }
