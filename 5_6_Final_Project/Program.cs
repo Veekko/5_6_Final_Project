@@ -90,23 +90,33 @@ namespace _5_6_Final_Project
         {
             (int NumberColors, string[] NameColor) Color;
 
-            string numColor;            
+            Console.Write("Есть ли у вас любимые цвета? да или нет: ");
 
-            do
+            string strColor = Console.ReadLine();
+            string numColor;
+
+            if (strColor == "да")
             {
-                Console.Write("Введите количество любимых цветов: ");
-                numColor = Console.ReadLine();
+                do
+                {
+                    Console.Write("Введите количество любимых цветов: ");
+                    numColor = Console.ReadLine();
 
-            } while (!CheckNum(numColor, out Color.NumberColors)); 
+                } while (!CheckNum(numColor, out Color.NumberColors));
 
-            Color.NameColor = GreateArrayPets(Color.NumberColors);
+                Color.NameColor = GreateArrayPets(Color.NumberColors);
 
-            for (int i = 0; i < Color.NameColor.Length; i++)
-            {
-                Console.Write("Введите название {0} любимого цвета: ", i + 1);
-                Color.NameColor[i] = Console.ReadLine();
+                for (int i = 0; i < Color.NameColor.Length; i++)
+                {
+                    Console.Write("Введите название {0} любимого цвета: ", i + 1);
+                    Color.NameColor[i] = Console.ReadLine();
+                }
             }
-
+            else
+            {
+                Color.NumberColors = 0;
+                Color.NameColor = GreateArrayPets(Color.NumberColors);
+            }
             return Color;
         }
         static void Data()
